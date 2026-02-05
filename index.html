@@ -270,59 +270,6 @@
       </div>
     </div>
 
-    <!-- Fixed Salary Payoff Section -->
-    <div class="card p-6 mb-6">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="p-3 bg-lfg-yellow rounded-xl"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <div><h2 class="text-xl font-bold">Time to Clear at Current Salary</h2><p class="text-sm text-lfg-black/60">Assuming your salary, thresholds, and interest rate stay constant</p></div>
-      </div>
-
-      <!-- Payoff summary -->
-      <div class="grid md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-lfg-yellow/30 rounded-xl p-4 border-2 border-lfg-black">
-          <p class="text-sm text-lfg-black/70 mb-1 font-medium">Time to Clear</p>
-          <p class="text-2xl font-black text-lfg-black" id="timeToClear">Never</p>
-          <p class="text-xs text-lfg-black/50 mt-1" id="timeToClearNote">At current salary</p>
-        </div>
-        <div class="bg-lfg-blue/30 rounded-xl p-4 border-2 border-lfg-black">
-          <p class="text-sm text-lfg-black/70 mb-1 font-medium">Total Amount Paid</p>
-          <p class="text-2xl font-black text-lfg-black" id="totalPaidFixed">£0</p>
-          <p class="text-xs text-lfg-black/50 mt-1" id="totalPaidNote">To clear balance</p>
-        </div>
-        <div class="bg-lfg-cream rounded-xl p-4 border-2 border-lfg-black">
-          <p class="text-sm text-lfg-black/70 mb-1 font-medium">Total Interest Paid</p>
-          <p class="text-2xl font-black text-lfg-orange" id="totalInterestFixed">£0</p>
-          <p class="text-xs text-lfg-black/50 mt-1" id="totalInterestNote">Added over repayment period</p>
-        </div>
-      </div>
-
-      <!-- Explanation box - will change based on scenario -->
-      <div class="p-4 bg-lfg-blue/20 border-2 border-lfg-blue rounded-xl" id="payoffSuccessBox" style="display: none;">
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-lfg-black flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <p class="font-bold text-lfg-black">You could clear your loan!</p>
-            <p class="text-sm text-lfg-black/70 mt-1" id="payoffSuccessText">If your salary stays at this level, you would pay off your loan before the 30-year write-off.</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-4 bg-lfg-orange/20 border-2 border-lfg-orange rounded-xl" id="payoffWarningBox">
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-lfg-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <p class="font-bold text-lfg-orange">Loan won't be cleared at this salary</p>
-            <p class="text-sm text-lfg-black/70 mt-1" id="payoffWarningText">The interest added exceeds your repayments, so the balance will grow until it's written off after 30 years.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Breakdown info -->
-      <div class="mt-4 p-4 bg-lfg-cream/50 rounded-xl border-2 border-lfg-black/20">
-        <h4 class="font-bold text-sm mb-2">How This is Calculated</h4>
-        <p class="text-xs text-lfg-black/60">This projection assumes your salary remains at <strong id="fixedSalaryDisplay">£33,696</strong>, thresholds don't change, and the interest rate stays at <strong id="fixedRateDisplay">3.89%</strong>. In reality, thresholds typically increase with inflation and your salary may change.</p>
-      </div>
-    </div>
-
     <!-- Share Your Results Section -->
     <div class="card p-6 mb-6">
       <div class="flex items-center justify-between">
@@ -445,59 +392,6 @@
       <div class="mt-4 p-4 bg-lfg-blue/30 border-2 border-lfg-blue rounded-xl flex items-start gap-3" id="p5-successBox" style="display: none;">
         <svg class="w-5 h-5 text-lfg-black flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
         <div><p class="font-bold text-lfg-black">Your loan balance is decreasing!</p><p class="text-sm text-lfg-black/70 mt-1" id="p5-successText">Your repayments exceed the interest being added.</p></div>
-      </div>
-    </div>
-
-    <!-- Fixed Salary Payoff Section -->
-    <div class="card p-6 mb-6">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="p-3 bg-lfg-yellow rounded-xl"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <div><h2 class="text-xl font-bold">Time to Clear at Current Salary</h2><p class="text-sm text-lfg-black/60">Assuming your salary, thresholds, and interest rate stay constant</p></div>
-      </div>
-
-      <!-- Payoff summary -->
-      <div class="grid md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-lfg-yellow/30 rounded-xl p-4 border-2 border-lfg-black">
-          <p class="text-sm text-lfg-black/70 mb-1 font-medium">Time to Clear</p>
-          <p class="text-2xl font-black text-lfg-black" id="p5-timeToClear">Never</p>
-          <p class="text-xs text-lfg-black/50 mt-1" id="p5-timeToClearNote">At current salary</p>
-        </div>
-        <div class="bg-lfg-blue/30 rounded-xl p-4 border-2 border-lfg-black">
-          <p class="text-sm text-lfg-black/70 mb-1 font-medium">Total Amount Paid</p>
-          <p class="text-2xl font-black text-lfg-black" id="p5-totalPaidFixed">£0</p>
-          <p class="text-xs text-lfg-black/50 mt-1" id="p5-totalPaidNote">To clear balance</p>
-        </div>
-        <div class="bg-lfg-cream rounded-xl p-4 border-2 border-lfg-black">
-          <p class="text-sm text-lfg-black/70 mb-1 font-medium">Total Interest Paid</p>
-          <p class="text-2xl font-black text-lfg-orange" id="p5-totalInterestFixed">£0</p>
-          <p class="text-xs text-lfg-black/50 mt-1" id="p5-totalInterestNote">Added over repayment period</p>
-        </div>
-      </div>
-
-      <!-- Explanation box -->
-      <div class="p-4 bg-lfg-blue/20 border-2 border-lfg-blue rounded-xl" id="p5-payoffSuccessBox" style="display: none;">
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-lfg-black flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <p class="font-bold text-lfg-black">You could clear your loan!</p>
-            <p class="text-sm text-lfg-black/70 mt-1" id="p5-payoffSuccessText">If your salary stays at this level, you would pay off your loan before the 40-year write-off.</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-4 bg-lfg-orange/20 border-2 border-lfg-orange rounded-xl" id="p5-payoffWarningBox">
-        <div class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-lfg-orange flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <div>
-            <p class="font-bold text-lfg-orange">Loan won't be cleared at this salary</p>
-            <p class="text-sm text-lfg-black/70 mt-1" id="p5-payoffWarningText">The interest added exceeds your repayments, so the balance will grow until it's written off after 40 years.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Breakdown info -->
-      <div class="mt-4 p-4 bg-lfg-cream/50 rounded-xl border-2 border-lfg-black/20">
-        <h4 class="font-bold text-sm mb-2">How This is Calculated</h4>
-        <p class="text-xs text-lfg-black/60">This projection assumes your salary remains at <strong id="p5-fixedSalaryDisplay">£33,696</strong>, thresholds don't change, and the interest rate stays at <strong>3.2%</strong>. In reality, thresholds typically increase with inflation and your salary may change.</p>
       </div>
     </div>
 
@@ -845,54 +739,6 @@ See how yours compares:`;
         document.getElementById('warningText').textContent = `At your current salary, the interest added (£${calc.monthlyInterest.toFixed(2)}/month) exceeds your repayments (£${calc.monthlyRepayment.toFixed(2)}/month).`;
       }
 
-      // Fixed salary payoff calculation
-      const fixedPayoff = calculateFixedSalaryPayoff();
-      const payoffSuccessBox = document.getElementById('payoffSuccessBox');
-      const payoffWarningBox = document.getElementById('payoffWarningBox');
-
-      document.getElementById('fixedSalaryDisplay').textContent = `£${currentSalary.toLocaleString()}`;
-      document.getElementById('fixedRateDisplay').textContent = `${(fixedPayoff.interestRate * 100).toFixed(2)}%`;
-
-      if (fixedPayoff.canPayOff) {
-        const timeStr = fixedPayoff.years > 0
-          ? `${fixedPayoff.years} yr${fixedPayoff.years !== 1 ? 's' : ''} ${fixedPayoff.remainingMonths > 0 ? fixedPayoff.remainingMonths + ' mo' : ''}`
-          : `${fixedPayoff.remainingMonths} months`;
-
-        document.getElementById('timeToClear').textContent = timeStr.trim();
-        document.getElementById('timeToClear').className = 'text-2xl font-black text-lfg-blue';
-        document.getElementById('timeToClearNote').textContent = 'To fully clear balance';
-
-        document.getElementById('totalPaidFixed').textContent = `£${Math.round(fixedPayoff.totalPaid).toLocaleString()}`;
-        document.getElementById('totalPaidNote').textContent = `vs original £${studentLoanBalance.toLocaleString()} borrowed`;
-
-        document.getElementById('totalInterestFixed').textContent = `£${Math.round(fixedPayoff.totalInterest).toLocaleString()}`;
-        document.getElementById('totalInterestNote').textContent = `${((fixedPayoff.totalInterest / studentLoanBalance) * 100).toFixed(0)}% of original balance`;
-
-        payoffSuccessBox.style.display = 'block';
-        payoffWarningBox.style.display = 'none';
-        document.getElementById('payoffSuccessText').textContent = `At £${currentSalary.toLocaleString()}/year, you'd pay off your £${studentLoanBalance.toLocaleString()} loan in ${timeStr.trim()}, paying £${Math.round(fixedPayoff.totalPaid).toLocaleString()} total (£${Math.round(fixedPayoff.totalInterest).toLocaleString()} in interest).`;
-      } else {
-        document.getElementById('timeToClear').textContent = 'Written off';
-        document.getElementById('timeToClear').className = 'text-2xl font-black text-lfg-orange';
-        document.getElementById('timeToClearNote').textContent = 'After 30 years';
-
-        if (fixedPayoff.reason === 'below_threshold') {
-          document.getElementById('payoffWarningText').textContent = `Your salary (£${currentSalary.toLocaleString()}) is below the £${REPAYMENT_THRESHOLD.toLocaleString()} threshold, so you wouldn't make any repayments. The loan would be written off after 30 years.`;
-        } else {
-          document.getElementById('payoffWarningText').textContent = `At £${currentSalary.toLocaleString()}/year, your monthly interest exceeds your repayment, so the balance grows. After 30 years, £${Math.round(fixedPayoff.finalBalance).toLocaleString()} will be written off.`;
-        }
-
-        // Still show actual totals paid over 30 years
-        document.getElementById('totalPaidFixed').textContent = `£${Math.round(fixedPayoff.totalPaid).toLocaleString()}`;
-        document.getElementById('totalPaidNote').textContent = `Paid over 30 years`;
-
-        document.getElementById('totalInterestFixed').textContent = `£${Math.round(fixedPayoff.totalInterest).toLocaleString()}`;
-        document.getElementById('totalInterestNote').textContent = `Interest added over 30 years`;
-
-        payoffSuccessBox.style.display = 'none';
-        payoffWarningBox.style.display = 'block';
-      }
-
       // Update charts
       if (barChart) {
         barChart.data.datasets[0].data = [calc.monthlyRepayment];
@@ -1047,50 +893,6 @@ See how yours compares:`;
         warningBox.style.display = 'flex';
         successBox.style.display = 'none';
         document.getElementById('p5-warningText').textContent = `At your current salary, the interest added (£${calc.monthlyInterest.toFixed(2)}/month) exceeds your repayments (£${calc.monthlyRepayment.toFixed(2)}/month).`;
-      }
-
-      // Fixed salary payoff
-      const fixedPayoff = p5CalculateFixedSalaryPayoff();
-      const payoffSuccessBox = document.getElementById('p5-payoffSuccessBox');
-      const payoffWarningBox = document.getElementById('p5-payoffWarningBox');
-
-      document.getElementById('p5-fixedSalaryDisplay').textContent = `£${p5CurrentSalary.toLocaleString()}`;
-
-      if (fixedPayoff.canPayOff) {
-        const timeStr = fixedPayoff.years > 0
-          ? `${fixedPayoff.years} yr${fixedPayoff.years !== 1 ? 's' : ''} ${fixedPayoff.remainingMonths > 0 ? fixedPayoff.remainingMonths + ' mo' : ''}`
-          : `${fixedPayoff.remainingMonths} months`;
-
-        document.getElementById('p5-timeToClear').textContent = timeStr.trim();
-        document.getElementById('p5-timeToClear').className = 'text-2xl font-black text-lfg-blue';
-        document.getElementById('p5-timeToClearNote').textContent = 'To fully clear balance';
-        document.getElementById('p5-totalPaidFixed').textContent = `£${Math.round(fixedPayoff.totalPaid).toLocaleString()}`;
-        document.getElementById('p5-totalPaidNote').textContent = `vs original £${p5StudentLoanBalance.toLocaleString()} borrowed`;
-        document.getElementById('p5-totalInterestFixed').textContent = `£${Math.round(fixedPayoff.totalInterest).toLocaleString()}`;
-        document.getElementById('p5-totalInterestNote').textContent = `${((fixedPayoff.totalInterest / p5StudentLoanBalance) * 100).toFixed(0)}% of original balance`;
-        payoffSuccessBox.style.display = 'block';
-        payoffWarningBox.style.display = 'none';
-        document.getElementById('p5-payoffSuccessText').textContent = `At £${p5CurrentSalary.toLocaleString()}/year, you'd pay off your £${p5StudentLoanBalance.toLocaleString()} loan in ${timeStr.trim()}, paying £${Math.round(fixedPayoff.totalPaid).toLocaleString()} total (£${Math.round(fixedPayoff.totalInterest).toLocaleString()} in interest).`;
-      } else {
-        document.getElementById('p5-timeToClear').textContent = 'Written off';
-        document.getElementById('p5-timeToClear').className = 'text-2xl font-black text-lfg-orange';
-        document.getElementById('p5-timeToClearNote').textContent = 'After 40 years';
-
-        if (fixedPayoff.reason === 'below_threshold') {
-          document.getElementById('p5-payoffWarningText').textContent = `Your salary (£${p5CurrentSalary.toLocaleString()}) is below the £${P5_REPAYMENT_THRESHOLD.toLocaleString()} threshold, so you wouldn't make any repayments. The loan would be written off after 40 years.`;
-        } else {
-          document.getElementById('p5-payoffWarningText').textContent = `At £${p5CurrentSalary.toLocaleString()}/year, your monthly interest exceeds your repayment, so the balance grows. After 40 years, £${Math.round(fixedPayoff.finalBalance).toLocaleString()} will be written off.`;
-        }
-
-        // Still show actual totals paid over 40 years
-        document.getElementById('p5-totalPaidFixed').textContent = `£${Math.round(fixedPayoff.totalPaid).toLocaleString()}`;
-        document.getElementById('p5-totalPaidNote').textContent = `Paid over 40 years`;
-
-        document.getElementById('p5-totalInterestFixed').textContent = `£${Math.round(fixedPayoff.totalInterest).toLocaleString()}`;
-        document.getElementById('p5-totalInterestNote').textContent = `Interest added over 40 years`;
-
-        payoffSuccessBox.style.display = 'none';
-        payoffWarningBox.style.display = 'block';
       }
 
       // Update charts
