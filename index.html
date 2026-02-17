@@ -287,21 +287,14 @@
         <h3 class="newsletter-cta-title">Your student debt shouldn't grow faster than your salary.</h3>
         <p class="newsletter-cta-subtitle">Sign up to our mailing list and join our fight to reverse Britain's decline.</p>
         <form class="newsletter-inline-form" id="nlFormP2">
-          <div class="newsletter-fields">
-            <div class="newsletter-field">
-              <label for="nlNameP2">name*</label>
-              <input type="text" id="nlNameP2" name="name" required>
-              <span class="nl-error" data-nl-error="name">Name is required</span>
-            </div>
-            <div class="newsletter-field">
-              <label for="nlEmailP2">email*</label>
-              <input type="email" id="nlEmailP2" name="email" required>
-              <span class="nl-error" data-nl-error="email">Invalid email address</span>
-            </div>
+          <div class="newsletter-field">
+            <label for="nlEmailP2">email*</label>
+            <input type="email" id="nlEmailP2" name="email" required placeholder="your@email.com">
+            <span class="nl-error" data-nl-error="email">Invalid email address</span>
           </div>
           <div class="nl-submit-error" data-nl-submit-error>Failed to submit. Please try again.</div>
           <button type="submit" class="nl-submit-btn">Count Me In</button>
-          <p style="font-size: 13px; opacity: 0.6; margin: 8px 0 0; text-align: center;">Free updates. No spam. Unsubscribe anytime.</p>
+          <p style="font-size: 13px; opacity: 0.85; margin: 8px 0 0; text-align: center;">Free updates. No spam. Unsubscribe anytime.</p>
         </form>
       </div>
     </div>
@@ -438,21 +431,14 @@
         <h3 class="newsletter-cta-title">Your student debt shouldn't grow faster than your salary.</h3>
         <p class="newsletter-cta-subtitle">Sign up to our mailing list and join our fight to reverse Britain's decline.</p>
         <form class="newsletter-inline-form" id="nlFormP5">
-          <div class="newsletter-fields">
-            <div class="newsletter-field">
-              <label for="nlNameP5">name*</label>
-              <input type="text" id="nlNameP5" name="name" required>
-              <span class="nl-error" data-nl-error="name">Name is required</span>
-            </div>
-            <div class="newsletter-field">
-              <label for="nlEmailP5">email*</label>
-              <input type="email" id="nlEmailP5" name="email" required>
-              <span class="nl-error" data-nl-error="email">Invalid email address</span>
-            </div>
+          <div class="newsletter-field">
+            <label for="nlEmailP5">email*</label>
+            <input type="email" id="nlEmailP5" name="email" required placeholder="your@email.com">
+            <span class="nl-error" data-nl-error="email">Invalid email address</span>
           </div>
           <div class="nl-submit-error" data-nl-submit-error>Failed to submit. Please try again.</div>
           <button type="submit" class="nl-submit-btn">Count Me In</button>
-          <p style="font-size: 13px; opacity: 0.6; margin: 8px 0 0; text-align: center;">Free updates. No spam. Unsubscribe anytime.</p>
+          <p style="font-size: 13px; opacity: 0.85; margin: 8px 0 0; text-align: center;">Free updates. No spam. Unsubscribe anytime.</p>
         </form>
       </div>
     </div>
@@ -1076,27 +1062,23 @@ See how yours compares:`;
 
       function initNlForm(formId) {
         const form = document.getElementById(formId);
-        const nameInput = form.querySelector('input[name="name"]');
         const emailInput = form.querySelector('input[name="email"]');
-        const nameError = form.querySelector('[data-nl-error="name"]');
         const emailError = form.querySelector('[data-nl-error="email"]');
         const submitError = form.querySelector('[data-nl-submit-error]');
         const submitBtn = form.querySelector('button[type="submit"]');
 
         function clearErrors() {
-          nameInput.classList.remove('nl-input-error'); emailInput.classList.remove('nl-input-error');
-          nameError.classList.remove('show'); emailError.classList.remove('show');
+          emailInput.classList.remove('nl-input-error');
+          emailError.classList.remove('show');
           submitError.classList.remove('show');
         }
 
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
           clearErrors();
-          const name = nameInput.value.trim();
           const email = emailInput.value.trim();
           let hasError = false;
 
-          if (!name) { nameInput.classList.add('nl-input-error'); nameError.textContent = 'Name is required'; nameError.classList.add('show'); hasError = true; }
           if (!email) { emailInput.classList.add('nl-input-error'); emailError.textContent = 'Email is required'; emailError.classList.add('show'); hasError = true; }
           else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailInput.classList.add('nl-input-error'); emailError.textContent = 'Invalid email address'; emailError.classList.add('show'); hasError = true; }
           if (hasError) return;
@@ -1104,10 +1086,10 @@ See how yours compares:`;
           submitBtn.disabled = true;
           submitBtn.textContent = 'submitting...';
           try {
-            const payload = new URLSearchParams({ 'Name': name, 'Email': email, 'List ID(s)': NL_LIST_ID });
+            const payload = new URLSearchParams({ 'Email': email, 'List ID(s)': NL_LIST_ID });
             const res = await fetch(NL_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: payload.toString() });
             if (!res.ok) throw new Error('Failed');
-            nameInput.value = ''; emailInput.value = '';
+            emailInput.value = '';
             nlModal.classList.add('show');
           } catch (err) {
             console.error('Newsletter signup error:', err);
@@ -1118,7 +1100,6 @@ See how yours compares:`;
           }
         });
 
-        nameInput.addEventListener('input', () => { nameInput.classList.remove('nl-input-error'); nameError.classList.remove('show'); });
         emailInput.addEventListener('input', () => { emailInput.classList.remove('nl-input-error'); emailError.classList.remove('show'); });
       }
 
