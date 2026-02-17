@@ -284,6 +284,30 @@
       </div>
     </div>
 
+    <!-- Newsletter Signup -->
+    <div class="card overflow-hidden mb-6">
+      <div class="bg-lfg-blue px-6 py-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-black text-lfg-black mb-2">This is not fair.</h2>
+        <p class="text-lfg-black/70">Sign up to our mailing list and join the fight for a fairer deal.</p>
+      </div>
+      <div class="p-6">
+        <form class="max-w-sm mx-auto flex flex-col gap-5" id="nlFormP2">
+          <div class="nl-field flex flex-col gap-2">
+            <label for="nlNameP2" class="text-sm font-medium">name*</label>
+            <input type="text" id="nlNameP2" name="name" required>
+            <span class="nl-error-msg" data-nl-error="name">Name is required</span>
+          </div>
+          <div class="nl-field flex flex-col gap-2">
+            <label for="nlEmailP2" class="text-sm font-medium">email*</label>
+            <input type="email" id="nlEmailP2" name="email" required>
+            <span class="nl-error-msg" data-nl-error="email">Invalid email address</span>
+          </div>
+          <div class="nl-submit-error" data-nl-submit-error>Failed to submit. Please try again.</div>
+          <button type="submit" class="nl-btn">join us</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Share Your Results Section -->
     <div class="card p-6 mb-6">
       <div class="flex items-center justify-between">
@@ -407,6 +431,30 @@
       </div>
     </div>
 
+    <!-- Newsletter Signup -->
+    <div class="card overflow-hidden mb-6">
+      <div class="bg-lfg-blue px-6 py-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-black text-lfg-black mb-2">This is not fair.</h2>
+        <p class="text-lfg-black/70">Sign up to our mailing list and join the fight for a fairer deal.</p>
+      </div>
+      <div class="p-6">
+        <form class="max-w-sm mx-auto flex flex-col gap-5" id="nlFormP5">
+          <div class="nl-field flex flex-col gap-2">
+            <label for="nlNameP5" class="text-sm font-medium">name*</label>
+            <input type="text" id="nlNameP5" name="name" required>
+            <span class="nl-error-msg" data-nl-error="name">Name is required</span>
+          </div>
+          <div class="nl-field flex flex-col gap-2">
+            <label for="nlEmailP5" class="text-sm font-medium">email*</label>
+            <input type="email" id="nlEmailP5" name="email" required>
+            <span class="nl-error-msg" data-nl-error="email">Invalid email address</span>
+          </div>
+          <div class="nl-submit-error" data-nl-submit-error>Failed to submit. Please try again.</div>
+          <button type="submit" class="nl-btn">join us</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Share Your Results Section -->
     <div class="card p-6 mb-6">
       <div class="flex items-center justify-between">
@@ -444,28 +492,6 @@
   </div>
 
   </div> <!-- Close padding wrapper -->
-
-  <!-- Newsletter Signup Section -->
-  <section class="bg-lfg-blue py-12 px-4 md:px-8 border-t-4 border-lfg-black">
-    <div class="max-w-md mx-auto text-center mb-8">
-      <h2 class="text-3xl md:text-4xl font-black text-lfg-black mb-3">This is not fair.</h2>
-      <p class="text-lfg-black/70 text-base">Sign up to our mailing list and join the fight for a fairer deal.</p>
-    </div>
-    <form class="bg-white w-full max-w-[400px] mx-auto rounded-xl p-8 flex flex-col gap-5 border-2 border-lfg-black shadow-lg" id="nlForm">
-      <div class="nl-field flex flex-col gap-2">
-        <label for="nlName" class="text-sm font-medium">name*</label>
-        <input type="text" id="nlName" name="name" required>
-        <span class="nl-error-msg" id="nlNameError">Name is required</span>
-      </div>
-      <div class="nl-field flex flex-col gap-2">
-        <label for="nlEmail" class="text-sm font-medium">email*</label>
-        <input type="email" id="nlEmail" name="email" required>
-        <span class="nl-error-msg" id="nlEmailError">Invalid email address</span>
-      </div>
-      <div class="nl-submit-error" id="nlSubmitError">Failed to submit. Please try again.</div>
-      <button type="submit" class="nl-btn" id="nlSubmitBtn">join us</button>
-    </form>
-  </section>
 
   <!-- Newsletter Success Modal -->
   <div class="nl-modal-overlay" id="nlSuccessModal">
@@ -1029,57 +1055,62 @@ See how yours compares:`;
     (function() {
       const NL_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/24440311/ursog2a/';
       const NL_LIST_ID = '56';
-      const nlForm = document.getElementById('nlForm');
-      const nlName = document.getElementById('nlName');
-      const nlEmail = document.getElementById('nlEmail');
-      const nlNameError = document.getElementById('nlNameError');
-      const nlEmailError = document.getElementById('nlEmailError');
-      const nlSubmitError = document.getElementById('nlSubmitError');
-      const nlSubmitBtn = document.getElementById('nlSubmitBtn');
       const nlModal = document.getElementById('nlSuccessModal');
       const nlModalClose = document.getElementById('nlModalClose');
 
-      function nlClearErrors() {
-        nlName.classList.remove('nl-error');
-        nlEmail.classList.remove('nl-error');
-        nlNameError.classList.remove('show');
-        nlEmailError.classList.remove('show');
-        nlSubmitError.classList.remove('show');
+      function initNlForm(formId) {
+        const form = document.getElementById(formId);
+        const nameInput = form.querySelector('input[name="name"]');
+        const emailInput = form.querySelector('input[name="email"]');
+        const nameError = form.querySelector('[data-nl-error="name"]');
+        const emailError = form.querySelector('[data-nl-error="email"]');
+        const submitError = form.querySelector('[data-nl-submit-error]');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        function clearErrors() {
+          nameInput.classList.remove('nl-error'); emailInput.classList.remove('nl-error');
+          nameError.classList.remove('show'); emailError.classList.remove('show');
+          submitError.classList.remove('show');
+        }
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          clearErrors();
+          const name = nameInput.value.trim();
+          const email = emailInput.value.trim();
+          let hasError = false;
+
+          if (!name) { nameInput.classList.add('nl-error'); nameError.textContent = 'Name is required'; nameError.classList.add('show'); hasError = true; }
+          if (!email) { emailInput.classList.add('nl-error'); emailError.textContent = 'Email is required'; emailError.classList.add('show'); hasError = true; }
+          else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailInput.classList.add('nl-error'); emailError.textContent = 'Invalid email address'; emailError.classList.add('show'); hasError = true; }
+          if (hasError) return;
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'submitting...';
+          try {
+            const payload = new URLSearchParams({ 'Name': name, 'Email': email, 'List ID(s)': NL_LIST_ID });
+            const res = await fetch(NL_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: payload.toString() });
+            if (!res.ok) throw new Error('Failed');
+            nameInput.value = ''; emailInput.value = '';
+            nlModal.classList.add('show');
+          } catch (err) {
+            console.error('Newsletter signup error:', err);
+            submitError.classList.add('show');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'join us';
+          }
+        });
+
+        nameInput.addEventListener('input', () => { nameInput.classList.remove('nl-error'); nameError.classList.remove('show'); });
+        emailInput.addEventListener('input', () => { emailInput.classList.remove('nl-error'); emailError.classList.remove('show'); });
       }
 
-      nlForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        nlClearErrors();
-        const name = nlName.value.trim();
-        const email = nlEmail.value.trim();
-        let hasError = false;
-
-        if (!name) { nlName.classList.add('nl-error'); nlNameError.textContent = 'Name is required'; nlNameError.classList.add('show'); hasError = true; }
-        if (!email) { nlEmail.classList.add('nl-error'); nlEmailError.textContent = 'Email is required'; nlEmailError.classList.add('show'); hasError = true; }
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { nlEmail.classList.add('nl-error'); nlEmailError.textContent = 'Invalid email address'; nlEmailError.classList.add('show'); hasError = true; }
-        if (hasError) return;
-
-        nlSubmitBtn.disabled = true;
-        nlSubmitBtn.textContent = 'submitting...';
-        try {
-          const payload = new URLSearchParams({ 'Name': name, 'Email': email, 'List ID(s)': NL_LIST_ID });
-          const res = await fetch(NL_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: payload.toString() });
-          if (!res.ok) throw new Error('Failed');
-          nlName.value = ''; nlEmail.value = '';
-          nlModal.classList.add('show');
-        } catch (err) {
-          console.error('Newsletter signup error:', err);
-          nlSubmitError.classList.add('show');
-        } finally {
-          nlSubmitBtn.disabled = false;
-          nlSubmitBtn.textContent = 'join us';
-        }
-      });
+      initNlForm('nlFormP2');
+      initNlForm('nlFormP5');
 
       nlModalClose.addEventListener('click', () => nlModal.classList.remove('show'));
       nlModal.addEventListener('click', (e) => { if (e.target === nlModal) nlModal.classList.remove('show'); });
-      nlName.addEventListener('input', () => { nlName.classList.remove('nl-error'); nlNameError.classList.remove('show'); });
-      nlEmail.addEventListener('input', () => { nlEmail.classList.remove('nl-error'); nlEmailError.classList.remove('show'); });
     })();
   </script>
 </body>
