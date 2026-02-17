@@ -173,25 +173,6 @@
     <div class="card p-8 mb-6">
       <h2 class="text-2xl font-black text-center mb-8">Select your student loan plan</h2>
 
-      <!-- Plan Buttons -->
-      <div class="bg-lfg-cream rounded-2xl p-6 border-2 border-lfg-black">
-        <div class="grid md:grid-cols-2 gap-4">
-          <button onclick="selectPlan('plan2')" class="bg-lfg-orange hover:bg-lfg-orange/90 text-white font-black text-xl py-6 px-8 rounded-xl border-2 border-lfg-black transition-all hover:scale-105 hover:shadow-lg">
-            Plan 2
-          </button>
-          <button onclick="selectPlan('plan5')" class="bg-lfg-orange hover:bg-lfg-orange/90 text-white font-black text-xl py-6 px-8 rounded-xl border-2 border-lfg-black transition-all hover:scale-105 hover:shadow-lg">
-            Plan 5
-          </button>
-        </div>
-      </div>
-
-      <!-- OR Divider -->
-      <div class="flex items-center my-8">
-        <div class="flex-1 h-0.5 bg-lfg-black/20"></div>
-        <span class="px-6 text-lg font-black text-lfg-black/50">OR</span>
-        <div class="flex-1 h-0.5 bg-lfg-black/20"></div>
-      </div>
-
       <!-- Date Selection -->
       <div class="bg-lfg-cream rounded-2xl p-6 border-2 border-lfg-black">
         <h3 class="text-lg font-bold text-center mb-4">When did you start your undergraduate degree?</h3>
@@ -203,6 +184,25 @@
           <button onclick="selectPlan('plan5')" class="bg-lfg-orange hover:bg-lfg-orange/90 text-white font-bold text-lg py-5 px-6 rounded-xl border-2 border-lfg-black transition-all hover:scale-105 hover:shadow-lg">
             <p class="text-xl font-black">After August 2023</p>
             <p class="text-sm font-medium mt-2 opacity-90">September 2023 onwards</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- OR Divider -->
+      <div class="flex items-center my-8">
+        <div class="flex-1 h-0.5 bg-lfg-black/20"></div>
+        <span class="px-6 text-lg font-black text-lfg-black/50">OR</span>
+        <div class="flex-1 h-0.5 bg-lfg-black/20"></div>
+      </div>
+
+      <!-- Plan Buttons -->
+      <div class="bg-lfg-cream rounded-2xl p-6 border-2 border-lfg-black">
+        <div class="grid md:grid-cols-2 gap-4">
+          <button onclick="selectPlan('plan2')" class="bg-lfg-orange hover:bg-lfg-orange/90 text-white font-black text-xl py-6 px-8 rounded-xl border-2 border-lfg-black transition-all hover:scale-105 hover:shadow-lg">
+            Plan 2
+          </button>
+          <button onclick="selectPlan('plan5')" class="bg-lfg-orange hover:bg-lfg-orange/90 text-white font-black text-xl py-6 px-8 rounded-xl border-2 border-lfg-black transition-all hover:scale-105 hover:shadow-lg">
+            Plan 5
           </button>
         </div>
       </div>
@@ -223,28 +223,51 @@
     <!-- Your Details Input -->
     <div class="card p-6 mb-6">
       <h2 class="text-xl font-bold mb-6">Your Details</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Your Annual Salary</label>
-          <div class="flex gap-4 items-center">
-            <input type="range" id="salarySlider" min="20000" max="80000" step="500" value="32347" class="flex-1" />
-            <div class="relative">
-              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
-              <input type="number" id="salaryInput" value="32347" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
-            </div>
+
+      <!-- Static defaults (shown initially) -->
+      <div id="p2-defaults">
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-lfg-cream rounded-xl p-4 border-2 border-lfg-black">
+            <p class="text-sm text-lfg-black/70 font-medium">Annual Salary</p>
+            <p class="text-2xl font-black">£32,347</p>
+            <p class="text-xs text-lfg-black/50 mt-1">Median for 22-29 year olds (<a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/ashe1997to2015selectedestimates" target="_blank" class="underline hover:text-lfg-orange">ONS</a>)</p>
           </div>
-          <p class="text-xs text-lfg-black/50 mt-2">Median for 22-29 year olds: £32,347 (<a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/ashe1997to2015selectedestimates" target="_blank" class="underline hover:text-lfg-orange">ONS Data</a>)</p>
+          <div class="bg-lfg-cream rounded-xl p-4 border-2 border-lfg-black">
+            <p class="text-sm text-lfg-black/70 font-medium">Loan Balance</p>
+            <p class="text-2xl font-black">£53,000</p>
+            <p class="text-xs text-lfg-black/50 mt-1">Average balance (<a href="https://commonslibrary.parliament.uk/research-briefings/sn01079/" target="_blank" class="underline hover:text-lfg-orange">Parliament</a>)</p>
+          </div>
         </div>
-        <div>
-          <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Outstanding Loan Balance</label>
-          <div class="flex gap-4 items-center">
-            <input type="range" id="loanSlider" min="0" max="100000" step="1000" value="53000" class="flex-1" />
-            <div class="relative">
-              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
-              <input type="number" id="loanInput" value="53000" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
+        <button onclick="toggleCustomDetails('plan2')" class="bg-lfg-orange hover:bg-lfg-orange/90 text-white font-bold py-3 px-6 rounded-xl border-2 border-lfg-black transition-all hover:scale-105 w-full">
+          Enter your own details
+        </button>
+      </div>
+
+      <!-- Sliders (hidden initially) -->
+      <div id="p2-sliders" style="display: none;">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Your Annual Salary</label>
+            <div class="flex gap-4 items-center">
+              <input type="range" id="salarySlider" min="20000" max="80000" step="500" value="32347" class="flex-1" />
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
+                <input type="number" id="salaryInput" value="32347" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
+              </div>
             </div>
+            <p class="text-xs text-lfg-black/50 mt-2">Median for 22-29 year olds: £32,347 (<a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/ashe1997to2015selectedestimates" target="_blank" class="underline hover:text-lfg-orange">ONS Data</a>)</p>
           </div>
-          <p class="text-xs text-lfg-black/50 mt-2">Average balance: <a href="https://commonslibrary.parliament.uk/research-briefings/sn01079/#:~:text=The%20average%20debt%20among%20borrowers%20who%20finished%20their%20course%20in%202024%20was%20%C2%A353%2C000%20when%20they%20first%20became%20liable%20to%20repay%20this%20debt%20(April%202025" target="_blank" class="underline hover:text-lfg-orange">£53,000</a></p>
+          <div>
+            <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Outstanding Loan Balance</label>
+            <div class="flex gap-4 items-center">
+              <input type="range" id="loanSlider" min="0" max="100000" step="1000" value="53000" class="flex-1" />
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
+                <input type="number" id="loanInput" value="53000" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
+              </div>
+            </div>
+            <p class="text-xs text-lfg-black/50 mt-2">Average balance: <a href="https://commonslibrary.parliament.uk/research-briefings/sn01079/#:~:text=The%20average%20debt%20among%20borrowers%20who%20finished%20their%20course%20in%202024%20was%20%C2%A353%2C000%20when%20they%20first%20became%20liable%20to%20repay%20this%20debt%20(April%202025" target="_blank" class="underline hover:text-lfg-orange">£53,000</a></p>
+          </div>
         </div>
       </div>
     </div>
@@ -367,28 +390,51 @@
     <!-- Your Details Input -->
     <div class="card p-6 mb-6">
       <h2 class="text-xl font-bold mb-6">Your Details</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Your Annual Salary</label>
-          <div class="flex gap-4 items-center">
-            <input type="range" id="p5-salarySlider" min="20000" max="80000" step="500" value="32347" class="flex-1" />
-            <div class="relative">
-              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
-              <input type="number" id="p5-salaryInput" value="32347" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
-            </div>
+
+      <!-- Static defaults (shown initially) -->
+      <div id="p5-defaults">
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="bg-lfg-cream rounded-xl p-4 border-2 border-lfg-black">
+            <p class="text-sm text-lfg-black/70 font-medium">Annual Salary</p>
+            <p class="text-2xl font-black">£32,347</p>
+            <p class="text-xs text-lfg-black/50 mt-1">Median for 22-29 year olds (<a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/ashe1997to2015selectedestimates" target="_blank" class="underline hover:text-lfg-orange">ONS</a>)</p>
           </div>
-          <p class="text-xs text-lfg-black/50 mt-2">Median for 22-29 year olds: £32,347 (<a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/ashe1997to2015selectedestimates" target="_blank" class="underline hover:text-lfg-orange">ONS Data</a>)</p>
+          <div class="bg-lfg-cream rounded-xl p-4 border-2 border-lfg-black">
+            <p class="text-sm text-lfg-black/70 font-medium">Loan Balance</p>
+            <p class="text-2xl font-black">£53,000</p>
+            <p class="text-xs text-lfg-black/50 mt-1">Average balance (<a href="https://commonslibrary.parliament.uk/research-briefings/sn01079/" target="_blank" class="underline hover:text-lfg-orange">Parliament</a>)</p>
+          </div>
         </div>
-        <div>
-          <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Outstanding Loan Balance</label>
-          <div class="flex gap-4 items-center">
-            <input type="range" id="p5-loanSlider" min="0" max="100000" step="1000" value="53000" class="flex-1" />
-            <div class="relative">
-              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
-              <input type="number" id="p5-loanInput" value="53000" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
+        <button onclick="toggleCustomDetails('plan5')" class="bg-lfg-orange hover:bg-lfg-orange/90 text-white font-bold py-3 px-6 rounded-xl border-2 border-lfg-black transition-all hover:scale-105 w-full">
+          Enter your own details
+        </button>
+      </div>
+
+      <!-- Sliders (hidden initially) -->
+      <div id="p5-sliders" style="display: none;">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Your Annual Salary</label>
+            <div class="flex gap-4 items-center">
+              <input type="range" id="p5-salarySlider" min="20000" max="80000" step="500" value="32347" class="flex-1" />
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
+                <input type="number" id="p5-salaryInput" value="32347" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
+              </div>
             </div>
+            <p class="text-xs text-lfg-black/50 mt-2">Median for 22-29 year olds: £32,347 (<a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/ashe1997to2015selectedestimates" target="_blank" class="underline hover:text-lfg-orange">ONS Data</a>)</p>
           </div>
-          <p class="text-xs text-lfg-black/50 mt-2">Average balance: <a href="https://commonslibrary.parliament.uk/research-briefings/sn01079/#:~:text=The%20average%20debt%20among%20borrowers%20who%20finished%20their%20course%20in%202024%20was%20%C2%A353%2C000%20when%20they%20first%20became%20liable%20to%20repay%20this%20debt%20(April%202025" target="_blank" class="underline hover:text-lfg-orange">£53,000</a></p>
+          <div>
+            <label class="block text-sm text-lfg-black/70 mb-2 font-medium">Outstanding Loan Balance</label>
+            <div class="flex gap-4 items-center">
+              <input type="range" id="p5-loanSlider" min="0" max="100000" step="1000" value="53000" class="flex-1" />
+              <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-lfg-black/50">£</span>
+                <input type="number" id="p5-loanInput" value="53000" class="w-32 bg-white border-2 border-lfg-black rounded-xl pl-7 pr-3 py-2 text-lfg-black text-right font-bold" />
+              </div>
+            </div>
+            <p class="text-xs text-lfg-black/50 mt-2">Average balance: <a href="https://commonslibrary.parliament.uk/research-briefings/sn01079/#:~:text=The%20average%20debt%20among%20borrowers%20who%20finished%20their%20course%20in%202024%20was%20%C2%A353%2C000%20when%20they%20first%20became%20liable%20to%20repay%20this%20debt%20(April%202025" target="_blank" class="underline hover:text-lfg-orange">£53,000</a></p>
+          </div>
         </div>
       </div>
     </div>
@@ -596,6 +642,12 @@ See how yours compares:`;
           p5UpdateAll();
         }
       }
+    }
+
+    function toggleCustomDetails(plan) {
+      const prefix = plan === 'plan2' ? 'p2' : 'p5';
+      document.getElementById(prefix + '-defaults').style.display = 'none';
+      document.getElementById(prefix + '-sliders').style.display = 'block';
     }
 
     function showMenu() {
